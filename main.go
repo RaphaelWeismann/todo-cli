@@ -1,7 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
-	fmt.Println("todo-cli v0.1")
+	if len(os.Args) < 2 {
+		fmt.Println("todo-cli: укажите команду")
+		return
+	}
+
+	switch os.Args[1] {
+	case "done":
+		fmt.Println("задача отмечена выполненной")
+	default:
+		fmt.Println("неизвестная команда")
+	}
 }
